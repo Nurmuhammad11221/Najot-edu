@@ -12,18 +12,18 @@ const SERVER_ORIGIN = "https://najot-edu.softwareengineer.uz";
 function toObject(res) {
   if (res && !Array.isArray(res) && typeof res === "object") {
     return res.data && typeof res.data === "object" ? res.data : res;
-  }
+  }                                                              
   return null;
 }
-
+                                              
 function toArray(res) {
   if (Array.isArray(res)) return res;
-  for (const k of ["data", "groups", "result", "items"])
+  for (const k of ["data", "groups", "result", "items"])         
     if (Array.isArray(res?.[k])) return res[k];
   return [];
-}
+}    
 
-function fmtDate(str) {
+function fmtDate(str) {                         
   if (!str) return "—";
   const d = new Date(str);
   if (Number.isNaN(d.getTime())) return String(str);

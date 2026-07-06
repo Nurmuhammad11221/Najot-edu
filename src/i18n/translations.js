@@ -163,7 +163,7 @@ export const translations = {
 
     /* dashboard */
     "dashboard.hello":            "Salom, creator!",
-    "dashboard.welcome":          "EduJava platformasiga xush kelibsiz!",
+    "dashboard.welcome":           "Najot-edu platformasiga xush kelibsiz!",
     "dashboard.groups":           "Guruhlar",
     "dashboard.courses":          "Fanlar",
     "dashboard.students":         "Talabalar",
@@ -555,7 +555,7 @@ export const translations = {
     "login.copyright":    "Copyright © 2021 of Tashkent University of Information Technologies",
 
     "dashboard.hello":            "Привет, creator!",
-    "dashboard.welcome":          "Добро пожаловать на платформу EduJava!",
+    "dashboard.welcome":          "Добро пожаловать на платформу Najot-edu!",
     "dashboard.groups":           "Группы",
     "dashboard.courses":          "Курсы",
     "dashboard.students":         "Студенты",
@@ -938,7 +938,7 @@ export const translations = {
     "login.copyright":    "Copyright © 2021 of Tashkent University of Information Technologies",
 
     "dashboard.hello":            "Hello, creator!",
-    "dashboard.welcome":          "Welcome to EduJava platform!",
+    "dashboard.welcome":          "Welcome to Najot-edu platform!",
     "dashboard.groups":           "Groups",
     "dashboard.courses":          "Subjects",
     "dashboard.students":         "Students",

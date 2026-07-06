@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { homeworkApi } from "../api/homework";
-import { useLanguage } from "../contexts/LanguageContext";
+import { homeworkApi } from "../api/homeworkService";
+import { homeworkReviewText } from "../constants/homeworkText";
 
 const SERVER_ORIGIN = "https://najot-edu.softwareengineer.uz";
 
@@ -37,23 +37,22 @@ export default function HomeworkReview() {
   const { groupId, homeworkId, studentId } = useParams();
   const navigate = useNavigate();
   const { state } = useLocation();
-  const { t } = useLanguage();
 
   const STATUS = {
     PENDING: {
-      label: t("hrv.pending"),
+      label: homeworkReviewText.pending,
       cls: "bg-yellow-100 text-yellow-700 border-yellow-300",
     },
     CHECKED: {
-      label: t("hrv.checked"),
+      label: homeworkReviewText.checked,
       cls: "bg-blue-100 text-blue-700 border-blue-300",
     },
     ACCEPTED: {
-      label: t("hrv.accepted"),
+      label: homeworkReviewText.accepted,
       cls: "bg-green-100 text-green-700 border-green-300",
     },
     REJECTED: {
-      label: t("hrv.rejected_status"),
+      label: homeworkReviewText.rejectedStatus,
       cls: "bg-red-100 text-red-700 border-red-300",
     },
   };
@@ -215,7 +214,7 @@ export default function HomeworkReview() {
         </span>
         <span className="text-gray-300">›</span>
         <span className="text-[13px] text-teal-500 font-medium">
-          {t("hrv.homework_task")}
+          {homeworkReviewText.homeworkTask}
         </span>
       </div>
 
@@ -226,14 +225,14 @@ export default function HomeworkReview() {
       )}
       {checkDone && (
         <div className="bg-green-50 text-green-700 text-[13px] font-semibold px-4 py-3 rounded-xl mb-4">
-          ✓ {t("hrv.success")}
+          ✓ {homeworkReviewText.success}
         </div>
       )}
 
       {/* Homework task */}
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 mb-4">
         <h2 className="text-[15px] font-bold text-gray-800 mb-3">
-          {t("hrv.homework_task")}
+          {homeworkReviewText.homeworkTask}
         </h2>
         {homeworkDesc ? (
           <>
@@ -241,7 +240,7 @@ export default function HomeworkReview() {
             <p className="text-[14px] text-gray-700">{homeworkDesc}</p>
           </>
         ) : (
-          <p className="text-[13px] text-gray-400">{t("hrv.no_comment")}</p>
+          <p className="text-[13px] text-gray-400">{homeworkReviewText.noComment}</p>
         )}
       </div>
 
@@ -254,14 +253,14 @@ export default function HomeworkReview() {
         {/* Meta */}
         <div className="bg-white rounded-xl p-4 flex flex-wrap gap-6 mb-4 border border-gray-100">
           <div>
-            <p className="text-[12px] text-gray-400 mb-0.5">{t("hrv.time")}</p>
+            <p className="text-[12px] text-gray-400 mb-0.5">{homeworkReviewText.time}</p>
             <p className="text-[14px] font-bold text-gray-800">
               {fmt(submittedAt)}
             </p>
           </div>
           <div>
             <p className="text-[12px] text-gray-400 mb-0.5">
-              {t("hrv.files_count")}
+              {homeworkReviewText.filesCount}
             </p>
             <p className="text-[14px] font-bold text-gray-800">
               {files.length}
@@ -269,7 +268,7 @@ export default function HomeworkReview() {
           </div>
           <div>
             <p className="text-[12px] text-gray-400 mb-0.5">
-              {t("hrv.status")}
+              {homeworkReviewText.status}
             </p>
             <span
               className={`text-[12px] font-semibold px-3 py-1 rounded-lg border ${statusInfo.cls}`}
@@ -342,13 +341,13 @@ export default function HomeworkReview() {
           {/* Info */}
           <div className="flex items-start gap-3 bg-blue-50 border border-blue-200 text-blue-700 text-[13px] px-4 py-3 rounded-xl mb-4">
             <span className="text-blue-500 text-[16px] mt-0.5 shrink-0">ℹ</span>
-            <span>{t("hrv.info_text")}</span>
+            <span>{homeworkReviewText.infoText}</span>
           </div>
 
           {/* Ball card */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 mb-4">
             <p className="text-[15px] font-bold text-gray-800 mb-4">
-              {t("hrv.ball")}
+              {homeworkReviewText.ball}
             </p>
             <div className="flex items-center gap-4 mb-2">
               <input
@@ -374,22 +373,22 @@ export default function HomeworkReview() {
               />
             </div>
             <p className="text-[12px] text-gray-400 text-center mb-4">
-              {t("hrv.pass_mark")}
+              {homeworkReviewText.passMark}
             </p>
             <div
               className={`w-full py-3 rounded-xl text-[14px] font-semibold text-center
               ${Number(grade) >= 60 ? "bg-green-100 text-green-700" : "bg-red-100 text-red-600"}`}
             >
               {Number(grade) >= 60
-                ? t("hrv.will_accept")
-                : t("hrv.will_reject")}
+                ? homeworkReviewText.willAccept
+                : homeworkReviewText.willReject}
             </div>
           </div>
 
           {/* Fayllar card */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 mb-4">
             <p className="text-[15px] font-bold text-gray-800 mb-4">
-              {t("hrv.files")}
+              {homeworkReviewText.files}
             </p>
             <div
               onDragOver={(e) => {
@@ -439,10 +438,10 @@ export default function HomeworkReview() {
                     </svg>
                   </div>
                   <p className="text-[14px] font-semibold text-gray-700 text-center px-6">
-                    {t("hrv.upload_hint")}
+                    {homeworkReviewText.uploadHint}
                   </p>
                   <p className="text-[12px] text-gray-400 text-center px-6">
-                    {t("hrv.upload_formats")}
+                    {homeworkReviewText.uploadFormats}
                   </p>
                 </>
               )}
@@ -461,7 +460,7 @@ export default function HomeworkReview() {
           {/* Izoh card */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 mb-4 relative">
             <textarea
-              placeholder={t("hrv.comment")}
+              placeholder={homeworkReviewText.comment}
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               rows={4}
@@ -496,14 +495,14 @@ export default function HomeworkReview() {
               onClick={() => navigate(-1)}
               className="px-6 py-2.5 text-[13px] font-semibold text-gray-600 border border-gray-200 rounded-2xl hover:bg-gray-50 cursor-pointer"
             >
-              {t("hrv.cancel")}
+              {homeworkReviewText.cancel}
             </button>
             <button
               onClick={handleCheck}
               disabled={checking}
               className="px-6 py-2.5 text-[13px] font-semibold text-white bg-teal-500 hover:bg-teal-600 disabled:opacity-60 rounded-2xl cursor-pointer transition-colors"
             >
-              {checking ? t("hrv.submitting") : t("hrv.submit")}
+              {checking ? homeworkReviewText.submitting : homeworkReviewText.submit}
             </button>
           </div>
         </>

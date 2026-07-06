@@ -9,7 +9,7 @@ import { groupsApi } from "../api/groups";
 import { lessonsApi } from "../api/lessons";
 import { getToken } from "../hooks/useAuth";
 import { attendanceApi } from "../api/attendance";
-import { homeworkApi } from "../api/homework";
+import { homeworkApi } from "../api/homeworkService";
 import { filesApi } from "../api/files";
 import { examsApi } from "../api/exams";
 import { useLanguage } from "../contexts/LanguageContext";

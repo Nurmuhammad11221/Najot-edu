@@ -28,7 +28,7 @@ function fixPhotoUrl(url) {
 function normalizeList(res) {
   if (Array.isArray(res)) return res;
   if (Array.isArray(res?.data)) return res.data;
-  if (Array.isArray(res?.teachers)) return res.teachers;
+  if (Array.isArray(res?.teachers)) return res.teachers;                             
   return [];
 }
 
@@ -874,7 +874,7 @@ export default function Teachers() {
                     key={g.id}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50 cursor-pointer border border-gray-100 transition-colors"
                   >
-                    <input
+                    <input  
                       type="checkbox"
                       checked={tempGroupModal.some((x) => x.id === g.id)}
                       onChange={() =>

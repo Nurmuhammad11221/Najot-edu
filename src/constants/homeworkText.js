@@ -1,0 +1,47 @@
+export const homeworkResultsText = {
+  tabPending: "Kutayotganlar",
+  tabRejected: "Qaytarilganlar",
+  tabAccepted: "Qabul qilinganlar",
+  tabChecked: "Bajarilmagan",
+  homework: "Uyga vazifa",
+  topic: "Mavzu",
+  deadline: "Tugash vaqti",
+  announce: "E'lon qilish",
+  loading: "Yuklanmoqda...",
+  noData: "Ma'lumot yo'q",
+  studentName: "O'quvchi ismi",
+  submittedAt: "Uyga vazifa jo'natilgan vaqt",
+  submittedTime: "Topshirilgan vaqti",
+  deadlineCol: "Tugash vaqti",
+  actions: "Harakatlar",
+  checkedTime: "Tekshirilgan vaqti",
+  grade: "Ball",
+};
+
+export const homeworkReviewText = {
+  pending: "Kutayabti",
+  checked: "Tekshirildi",
+  accepted: "Qabul qilindi",
+  rejectedStatus: "Rad etildi",
+  homeworkTask: "Uy vazifasi",
+  success: "Muvaffaqiyatli baholandi!",
+  noComment: "Izoh yo'q",
+  time: "Vaqti:",
+  filesCount: "Fayllar soni:",
+  status: "Status:",
+  infoText:
+    "60-100 oralig'ida ball qo'yilgan vazifa 'Qabul qilingan', 0-59 oralig'ida ball qo'yilgan vazifa 'Qaytarilgan' hisoblanadi.",
+  ball: "Ball",
+  passMark: "O'tish bali",
+  willAccept: "✓ Qabul qilinadi",
+  willReject: "✗ Qaytariladi",
+  files: "Fayllar",
+  uploadHint:
+    "Faylni yuklash uchun ushbu hudud ustiga bosing yoki faylni shu yerga olib keling",
+  uploadFormats:
+    ".jpg, .png, .pdf, .mp4, .docs formatlaridan birida bo'lishi mumkin",
+  comment: "Izohingiz",
+  cancel: "Bekor qilish",
+  submit: "Qabul qilish",
+  submitting: "Yuborilmoqda...",
+};

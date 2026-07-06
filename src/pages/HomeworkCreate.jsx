@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { lessonsApi } from "../api/lessons";
-import { homeworkApi } from "../api/homework";
+import { homeworkApi } from "../api/homeworkService";
 import { usePanelBase } from "../hooks/usePanelBase";
 
 // ── Rich text editor toolbar commands ────────────────────────────────────────

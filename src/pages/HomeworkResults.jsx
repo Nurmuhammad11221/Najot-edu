@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { homeworkApi } from "../api/homework";
-import { useLanguage } from "../contexts/LanguageContext";
+import { homeworkApi } from "../api/homeworkService";
 import { usePanelBase } from "../hooks/usePanelBase";
+import { homeworkResultsText } from "../constants/homeworkText";
 
 const MONTHS = [
   "Yan",
@@ -28,14 +28,13 @@ function fmt(str) {
 
 export default function HomeworkResults() {
   const { groupId, homeworkId } = useParams();
-  const { t } = useLanguage();
   const base = usePanelBase();
 
   const TABS = [
-    { key: "PENDING", label: t("hr.tab_pending") },
-    { key: "REJECTED", label: t("hr.tab_rejected") },
-    { key: "ACCEPTED", label: t("hr.tab_accepted") },
-    { key: "CHECKED", label: t("hr.tab_checked") },
+    { key: "PENDING", label: homeworkResultsText.tabPending },
+    { key: "REJECTED", label: homeworkResultsText.tabRejected },
+    { key: "ACCEPTED", label: homeworkResultsText.tabAccepted },
+    { key: "CHECKED", label: homeworkResultsText.tabChecked },
   ];
   const navigate = useNavigate();
 
@@ -178,7 +177,7 @@ export default function HomeworkResults() {
           <ArrowBackIcon sx={{ fontSize: 20, color: "#374151" }} />
         </button>
         <h1 className="text-[20px] font-bold text-gray-800">
-          {homework?.topic ?? homework?.title ?? t("hr.homework")}
+          {homework?.topic ?? homework?.title ?? homeworkResultsText.homework}
         </h1>
       </div>
 
@@ -186,7 +185,7 @@ export default function HomeworkResults() {
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-4 mb-5 flex items-center justify-between">
         <div className="flex gap-12">
           <div>
-            <p className="text-[12px] text-gray-400 mb-1">{t("hr.topic")}</p>
+            <p className="text-[12px] text-gray-400 mb-1">{homeworkResultsText.topic}</p>
             <p className="text-[15px] font-bold text-gray-800">
               {homework?.topic ?? homework?.title ?? "—"}
             </p>
@@ -194,7 +193,7 @@ export default function HomeworkResults() {
           {(homework?.deadline ?? homework?.due_date) && (
             <div>
               <p className="text-[12px] text-gray-400 mb-1">
-                {t("hr.deadline")}
+                {homeworkResultsText.deadline}
               </p>
               <p className="text-[14px] font-semibold text-gray-700">
                 {fmt(homework.deadline ?? homework.due_date)}
@@ -203,7 +202,7 @@ export default function HomeworkResults() {
           )}
         </div>
         <button className="border border-gray-200 text-[13px] font-semibold text-gray-500 hover:bg-gray-50 px-4 py-1.5 rounded-lg cursor-pointer transition-colors">
-          {t("hr.announce")}
+          {homeworkResultsText.announce}
         </button>
       </div>
 
@@ -234,21 +233,21 @@ export default function HomeworkResults() {
       <div className="bg-white rounded-b-2xl border border-t-0 border-gray-100 shadow-sm overflow-hidden">
         {loading ? (
           <p className="text-center text-[13px] text-gray-400 py-10">
-            {t("hr.loading")}
+            {homeworkResultsText.loading}
           </p>
         ) : list.length === 0 ? (
           <p className="text-center text-[13px] text-gray-400 py-10">
-            {t("hr.no_data")}
+            {homeworkResultsText.noData}
           </p>
         ) : activeTab === "PENDING" ? (
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-gray-100">
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-gray-400">
-                  {t("hr.student_name")}
+                  {homeworkResultsText.studentName}
                 </th>
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-gray-400 text-right pr-6">
-                  {t("hr.submitted_at")}
+                  {homeworkResultsText.submittedAt}
                 </th>
               </tr>
             </thead>
@@ -302,16 +301,16 @@ export default function HomeworkResults() {
             <thead>
               <tr className="border-b border-gray-100">
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-gray-400">
-                  {t("hr.student_name")}
+                  {homeworkResultsText.studentName}
                 </th>
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-gray-400">
-                  {t("hr.submitted_time")}
+                  {homeworkResultsText.submittedTime}
                 </th>
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-gray-400">
-                  {t("hr.deadline_col")}
+                  {homeworkResultsText.deadlineCol}
                 </th>
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-gray-400 text-right pr-6">
-                  {t("hr.actions")}
+                  {homeworkResultsText.actions}
                 </th>
               </tr>
             </thead>
@@ -382,16 +381,16 @@ export default function HomeworkResults() {
             <thead>
               <tr className="border-b border-gray-100">
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-teal-500">
-                  {t("hr.student_name")}
+                  {homeworkResultsText.studentName}
                 </th>
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-teal-500">
-                  {t("hr.checked_time")}
+                  {homeworkResultsText.checkedTime}
                 </th>
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-teal-500">
-                  {t("hr.grade")}
+                  {homeworkResultsText.grade}
                 </th>
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-gray-400 text-right pr-6">
-                  {t("hr.actions")}
+                  {homeworkResultsText.actions}
                 </th>
               </tr>
             </thead>
@@ -448,10 +447,10 @@ export default function HomeworkResults() {
             <thead>
               <tr className="border-b border-gray-100">
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-gray-400">
-                  {t("hr.student_name")}
+                  {homeworkResultsText.studentName}
                 </th>
                 <th className="px-5 py-3.5 text-[12px] font-semibold text-gray-400 text-right pr-6">
-                  {t("hr.deadline_col")}
+                  {homeworkResultsText.deadlineCol}
                 </th>
               </tr>
             </thead>
